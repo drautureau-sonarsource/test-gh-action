@@ -6,6 +6,8 @@ jobs:
     name: Update dogfood branch
     steps:
     - name: git octopus step
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       id: dogfood
       uses: drautureau-sonarsource/gh-action_git-octopus@init
       with:
