@@ -3,13 +3,13 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Update dogfood branch
     steps:
-    - name: Hello world action step
-      id: hello
+    - name: git octopus step
+      id: dogfood
       uses: drautureau-sonarsource/gh-action_git-octopus@init
       with:
-        who-to-greet: 'Mona the Octocat'
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+        dogfood-branch: 'dogfood-on-sonarcloud'
+    # Use the output from the `dogfood` step
+    - name: Get the name of the dogfood branch and its HEAD SHA1
+      run: echo "The dogfood branch was ${{ steps.dogfood.outputs.dogfood-branch }} and its HEAD SHA1 was ${{ steps.dogfood.outputs.sha1 }}"
