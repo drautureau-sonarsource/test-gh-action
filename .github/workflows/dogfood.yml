@@ -13,7 +13,7 @@ jobs:
     steps:
     - name: git octopus step      
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       id: dogfood
       uses: SonarSource/gh-action_dogfood_merge@task/dr/conditionaly-enable-dogfood-deletion
       with:
