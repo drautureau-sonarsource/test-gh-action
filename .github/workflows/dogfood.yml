@@ -18,6 +18,7 @@ jobs:
       uses: SonarSource/gh-action_dogfood_merge@task/dr/conditionaly-enable-dogfood-deletion
       with:
         dogfood-branch: 'dogfood-on-next'
+        delete-branches: '1'
     # Use the output from the `dogfood` step
     - name: Get the name of the dogfood branch and its HEAD SHA1
       run: echo "The dogfood branch was ${{ steps.dogfood.outputs.dogfood-branch }} and its HEAD SHA1 was ${{ steps.dogfood.outputs.sha1 }}"
