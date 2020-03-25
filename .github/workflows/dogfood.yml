@@ -19,4 +19,3 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       id: dogfood-automerge
       uses: SonarSource/gh-action_dogfood_merge@task/dr/BUILD-796-fix-delete-dogfood-branches
-
