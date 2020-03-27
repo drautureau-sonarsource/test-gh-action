@@ -14,9 +14,21 @@ jobs:
     runs-on: ubuntu-latest
     name: Update dogfood branch
     steps:
+    - name: Debug
+      env:
+        ACTOR: ${{ github.actor }}
+        WORKFLOW: ${{ github.workflow }}
+        RUN_ID: ${{ github.run_id }}
+        RUN_NUMBER: ${{ github.run_number }}
+        ACTION: ${{ github.action }}
+        REPOSITORY: ${{ github.repository	}}
+        EVENT_NAME: ${{ github.event_name }}
+        SHA: ${{ github.sha	}}
+      #run: echo "Repository is github.repository, Actor is $ACTOR, runId is $RUN_ID"
+      run: echo "Event is ${EVENT_NAME}, Sha is ${SHA}, Actor is ${ACTOR}, Action instance URL is https://github.com/${REPOSITORY}/actions/runs/${RUN_ID}"
     - name: git octopus step      
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       id: dogfood-automerge
       uses: SonarSource/gh-action_dogfood_merge@task/dr/BUILD-796-fix-delete-dogfood-branches
-
+#https://github.com/drautureau-sonarsource/test-gh-action/actions/runs/$RUN_ID
