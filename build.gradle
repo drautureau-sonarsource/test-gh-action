@@ -51,7 +51,6 @@ sonarqube {
   }
 }
 
-
 if (!JavaVersion.current().java11Compatible) {
   throw new GradleException("JDK 11+ is required to perform this build. It's currently " + System.getProperty("java.home") + ".")
 }
