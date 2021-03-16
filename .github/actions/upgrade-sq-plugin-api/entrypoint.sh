@@ -7,9 +7,15 @@ github_user="drautureau-sonarsource"
 git config --global user.email "${github_user}@sonarsource.com"
 git config --global user.name "${github_user}"
 
+echo "DEBUG get log on master"
+git log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset' -5
+
 echo "Checkout the branch 'check-update-of-sq-plugin-api'"
 git fetch origin check-update-of-sq-plugin-api
 git checkout check-update-of-sq-plugin-api
+
+echo "DEBUG get log on check-update-of-sq-plugin-api"
+git log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset' -5
 
 echo "Rebase on master"
 git rebase master
