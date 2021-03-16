@@ -11,7 +11,7 @@ jobs:
       - name: Checkout the latest code from master branch
         uses: actions/checkout@v2.3.4
         with:
-          fetch-depth: 1
+          fetch-depth: 0 # otherwise, you will fail to push refs to dest repo
           ref: master
           token: ${{ secrets.MY_GITHUB_TOKEN }}
       - name: Rebase the branch 'check-update-of-sq-plugin-api' and upgrade SQ plugin API
